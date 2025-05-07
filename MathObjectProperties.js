@@ -46,3 +46,5 @@ console.log(`lowestNum : ${lowestNum}, highestNum : ${highestNum}\n`);
 // 9.   Math.random() -> It returns a random number between 0 (inclusive) and 1(exclusive).
 let randomNum = Math.random();
 console.log(`randomNum : ${randomNum}\n`);
+
+// Note: Other Math properties are available, but these 9 are the most commonly used.
