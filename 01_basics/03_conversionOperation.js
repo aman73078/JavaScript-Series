@@ -87,4 +87,47 @@ console.log(`Data Type of valueInBoolean10 :- ${typeof valueInBoolean10} and val
 console.log(`Data Type of valueInBoolean11:- ${typeof valueInBoolean11} and value is ${valueInBoolean11}`);
 console.log(`Data Type of valueInBoolean12 :- ${typeof valueInBoolean12} and value is ${valueInBoolean12}`);
 console.log(`Data Type of valueInBoolean13 :- ${typeof valueInBoolean13} and value is ${valueInBoolean13}`);
-console.log(`Data Type of valueInBoolean14 :- ${typeof valueInBoolean14} and value is ${valueInBoolean14}`);
+console.log(`Data Type of valueInBoolean14 :- ${typeof valueInBoolean14} and value is ${valueInBoolean14}\n\n`);
+
+
+// ********************************** Operations *********************************** //
+let value = 33;
+let negValue = -value;
+console.log(`Negation of value is ${negValue}`);
+
+console.log(5+2);
+console.log(5+(-2));
+console.log(5-2);
+console.log(5*2);
+console.log(5**2);
+console.log(5/2);
+console.log(5%2);
+console.log(5/0);
+console.log(`Line::103---> ${5*true} and ${5*(-true)}`);
+console.log(`Line::104---> ${5*false} and ${5*(-false)}`);
+console.log(`Line::105---> ${5+true} and ${5+(-true)}`);
+console.log(`Line::106---> ${5+false} and ${5+(-false)}`);
+console.log(`Line::107---> ${5-true} and ${5-(-true)}`);
+console.log(`Line::108---> ${5-false} and ${5-(-false)}`);
+console.log(`Line::109---> ${"1" + 5} and ${"1" + (-5)}`);
+console.log(`Line::110---> ${"1" - 5} and ${"1" - (-5)}`);
+console.log(`Line::111---> ${"1" - 5 + 2} and ${"1" - (-5) + 2}`);
+console.log(`Line::112---> ${"1" + 5 + 5} and ${"1" + (-5) + 5}`);
+console.log(`Line::113--- ${1 + 5 + "5"} and ${1 + (-5) + "5"}`);
+console.log(`Line::114--- ${+true}`);
+console.log(`Line::115--- ${+false}`);
+console.log(`Line::116--- ${-true}`);
+console.log(`Line::117--- ${-false}`);
+console.log(`Line::118--- ${1+""} and ${typeof (1+"")}`);
+console.log(`Line::118--- ${1+""} and ${typeof (1+"")}`);
+
+
+let playerScore1 = 100;
+let playerScore2 = 200;
+console.log(`Line::119--- ${playerScore1} and ${playerScore2}`); // see before
+playerScore1++;  // postfix
+++playerScore2;  // prefix
+console.log(`Line::120--- ${playerScore1} and ${playerScore2}`); // see after
+
+// Note:- Precedence is the difference between playerScore1 and playerScore2. Prefix value increment first and then assigned to playerScore2. Postfix value is assigned first and then increment. So, player
+// for more infomation search this line : "prefix and postfix js mdn" in google.
