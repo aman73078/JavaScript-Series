@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="parent">
+        <!-- this is my comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday <span hidden="true">this is my </span></div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+        <div class="day">Friday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent');
+    console.log('Line::19---> ', parent);
+    console.log('Line::20---> ', parent.children);
+    console.log('Line::21---> ', parent.children[1].innerHTML);
+    console.log('Line::22---> ', parent.children[1].innerText);
+    console.log('Line::23---> ', parent.children[1].textContent);
+
+    for(let i = 0; i<parent.children.length; i++){
+        console.log('Line::26---> ',parent.children[i].innerHTML);
+    };
+
+    console.log('Line::29---> ',parent.firstElementChild);
+    console.log('Line::29---> ',parent.lastElementChild);
+    
+    const day = document.querySelector('.day');
+    console.log('Line::34---> ', day);
+    console.log('Line::35---> ', day.parentElement);
+    console.log('Line::36---> ', day.parentNode);
+    console.log('Line::37---> ', day.nextSibling);
+    console.log('Line::38---> ', day.nextElementSibling);
+
+    console.log('Line::40---> ', parent.childNodes);
+</script>
+</html>

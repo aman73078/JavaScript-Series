@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    const newElement = document.createElement('div');
+    console.log('Line::13---> ',newElement);
+    newElement.className = "main";
+    newElement.id = Math.round(Math.random() * 10 + 1);
+    newElement.setAttribute('title','This is my title');
+    newElement.style.backgroundColor = 'green';
+    newElement.style.padding  = '12px';
+    newElement.innerText = "This is new Element";
+    console.log('Line::20---> ',newElement);
+    document.body.appendChild(newElement);
+    console.log('Line::22---> ',newElement);
+
+    const newElement2 = document.createElement('h1');
+    newElement2.style.backgroundColor = 'red';
+    newElement2.style.padding = '12px';
+    const text = document.createTextNode("This is Element 2");
+    newElement2.appendChild(text);
+    console.log('Line::29---> ',newElement2);
+    document.body.appendChild(newElement2);
+    console.log('Line::31---> ',newElement2);
+</script>
+</html>
