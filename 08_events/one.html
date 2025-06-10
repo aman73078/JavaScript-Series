@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141; color: aliceblue;">
+    <div class="canvas">
+        <h2>Amazing Image</h2>
+        <ul id="images">
+            <li>
+                <img src="https://images.pexels.com/photos/29775989/pexels-photo-29775989/free-photo-of-serene-sunlit-forest-in-helsingborg.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    width="200px" height="200px" id="nature-tree" alt="pic-1">
+            </li>
+            <li>
+                <!-- <img onclick="alert('This is my alert')" src="https://images.pexels.com/photos/86596/owl-bird-eyes-eagle-owl-86596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="owl" width="200px" height="200px" alt="owl image"> -->
+                <!-- Note:- Inside the element tag we should not use onclick -->
+                <img src="https://images.pexels.com/photos/86596/owl-bird-eyes-eagle-owl-86596.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    id="owl" width="200px" height="200px" alt="owl image">
+            </li>
+            <li>
+                <img src="https://images.pexels.com/photos/773471/pexels-photo-773471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    id="city" width="200px" height="200px" alt="city image">
+            </li>
+            <li>
+                <img src="https://images.pexels.com/photos/3718433/pexels-photo-3718433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    id="cricket" width="200px" height="200px" alt="cricket image">
+            </li>
+            <li>
+                <a style="color: aliceblue;" href="google.com" id="google">Google</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    document.getElementById('owl').onclick = function () {
+        alert('This is my alert');
+    };
+    // Note:- This is also not a good practice because it doesn't provide more features. we should use event listeners.
+
+    document.getElementById('owl').addEventListener('click', function () {
+        alert("This is my alert");
+    }, false);
+
+    // attachEvent():- This is used for IE(Internet Explorer) browser at earlier. It is not supported by other browsers.
+    document.getElementById('nature-tree').addEventListener('click', function (event) {
+        console.log('Line::50----> ', event);  // event is an object. which contains all events like: browser or envirnoment(click event).
+    }, false);
+
+
+    /* Event Propagation:--> This is a process of passing the event from one element to another element. 
+                             It has two context : Capturing and Bubbling. False is for bubbling and true is 
+                             for capturing. By default it is set to false.
+    */
+
+    /*
+    Bubbling:- It is a process of passing the event from child element to parent element means inner to outer.
+    Example:- In below city clicked event is passed from city to ul to body to html to window.
+    */
+    document.getElementById('images').addEventListener('click', function (event) {
+        console.log('Line::64---> clicked inside the ul');
+    }, false);
+
+    document.getElementById('city').addEventListener('click', function (event) {
+        console.log('Line::68---> city clicked.');
+    }, false);
+
+
+    /*
+    Capturing:- It is a process of passing the event from parent element to child element means outer to inner.
+    Example:- In Below click inside the ul event is passed from body to html to window to ul to li to img.
+    */
+    document.getElementById('images').addEventListener('click', function (event) {
+        console.log('Line::77---> clicked inside the ul');
+    }, true);
+
+    document.getElementById('cricket').addEventListener('click', function (event) {
+        console.log('Line::81---> cricket clicked.');
+    }, true);
+
+    // event methods:->
+    document.getElementById('cricket').addEventListener('click', function (event) {
+        console.log('Line::86---> cricket clicked.');
+        event.stopPropagation();
+    }, false);
+
+    document.getElementById('google').addEventListener('click', function (event) {
+        console.log('Line::91---> google clicked.');
+        event.stopPropagation();
+        event.preventDefault();
+    }, false);
+
+    // problem
+    document.querySelector('#images').addEventListener('click',function(event){
+        console.log('Line::98----> ',event.target);
+        console.log('Line::98----> ',event.target.parentNode);
+        if(event.target.tagName === 'IMG'){
+            console.log('Line::101---> ',event.target.id);
+            let removeIt = event.target.parentNode;
+            removeIt.remove();
+        }
+        // removeIt.parentNode.removeChild(removeIt);
+    },false)
+    
+</script>
+
+</html>
