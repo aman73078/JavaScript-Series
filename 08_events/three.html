@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Python Series</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const printHello = function(str){
+        console.log("Hello ", str ,Date.now());
+    }
+    const stopInterval = setInterval(printHello,2000,"Manoj");
+    clearInterval(stopInterval);
+
+    // Q. Create 2 buttons , one to start and one to stop the interval
+    let referenceOfInterval;
+    function handleEvent(condition){
+        if(condition){
+            console.log("Event handled Start");
+            referenceOfInterval = setInterval(triggerEvent,1000,'Rahul');
+        }else{
+            console.log("Event handled Stop");
+            clearInterval(referenceOfInterval);
+        }
+    }
+    document.querySelector('#start').addEventListener('click',()=>{
+        handleEvent(true)
+    },false)
+
+    document.querySelector('#stop').addEventListener('click',()=>{
+        handleEvent(false);
+    },false)
+
+    function triggerEvent(eventName){
+        console.log(`${eventName}`,Date.now());
+    }
+</script>
+</html>

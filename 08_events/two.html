@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript series</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    const printHello = function(){
+        console.log("Hello");
+    }
+    const changeh1 = function(){
+        document.querySelector('h1').innerHTML = "TypeScript Series";
+    }
+    const referenceOfSetTimeout = setTimeout(changeh1,3000);
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearInterval(referenceOfSetTimeout);
+        console.log('stopped');
+    },false)
+</script>
+</html>
