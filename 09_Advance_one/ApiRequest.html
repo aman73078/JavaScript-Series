@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+</head>
+<style>
+    .container{
+        margin: 20px auto;
+        width: 30rem;
+        height: 15rem;
+        border: 2px solid white;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0px 0px 20px 0px #fff;
+        /* display: flex;
+        justify-content: space-around;
+        align-items: center; */
+    }
+    .card{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .text{
+        color: #212121;
+
+    }
+    img{
+        border: 2px solid red;
+        height: 6rem;
+        width: 6rem;
+        
+    }
+    .btn{
+        margin: 5px 100px;
+        color: white;
+        background-color: green;
+        padding: 5px;
+        border-radius: 5px;
+    }
+</style>
+<body style="background-color: #212121; color: #fff;">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text">Hitesh</h1>
+                <p class="text"><strong>Follwers:</strong> <span>5400</span></p>
+            </div>
+            <img src="" alt="">
+        </div>
+        <button type="button" class="btn" >Print</button>
+    </div>
+</body>
+<script>
+    const requestURL = 'https://api.github.com/users/hiteshchoudhary';
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET',requestURL);
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            let data = JSON.parse(xhr.responseText);
+            console.log(typeof data,'---', data);
+            console.log(data.followers);
+        }
+    }
+    xhr.send();
+
+    // ################### assignment #################
+    function fetchData(){
+        let result;
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET',requestURL);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4){
+                console.log(xhr.responseText);
+                result = JSON.parse(xhr.responseText);
+                appendData(result);
+            }
+        }
+        xhr.send();
+    }
+    document.querySelector('.btn').addEventListener('click', ()=>{
+        fetchData();
+    })
+    const appendData = function(data){
+        let h1Ele = document.querySelector('h1');
+        h1Ele.innerHTML = data.login.toUpperCase();
+        let imgEle = document.querySelector('img');
+        imgEle.setAttribute('src',data.avatar_url)
+        document.querySelector('span').innerHTML = data.followers;
+    }
+    
+</script>
+</html>
