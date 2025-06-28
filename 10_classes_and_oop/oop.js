@@ -34,3 +34,6 @@ const user3 = new User("Mayank","Mayank@gmail.com","Mayank1234",16);
 const user4 = new User("Raju","Raju@gmail.com","Raju1234",16);
 console.log("Line::35---> ",user3);
 console.log("Line::36---> ",user4);
+console.log("Line::37---> ",user4 instanceof User);
+console.log("Line::38---> ",user1 instanceof User); 
+// conlose no.38 will returnn false because we didn't create a new Instance of User by using "new" keyword.
